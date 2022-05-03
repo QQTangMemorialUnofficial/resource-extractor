@@ -52,9 +52,9 @@ jobs:
       - name: Extract Resources
         run: |
           java -jar resource-extractor.jar QQTang5.2_Beta1Build1 ./extracted
-          zip -r QQTang5.2_Beta1Build1 QQTang5.2_Beta1Build1
+          zip -r QQTang5.2_Beta1Build1.zip QQTang5.2_Beta1Build1
       - name: Publish Resources
         uses: actions/upload-artifact@v3
         with:
           name: QQTang5.2_Beta1Build1
-          path: QQTang5.2_Beta1Build1
+          path: QQTang5.2_Beta1Build1.zip
