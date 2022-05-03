@@ -30,9 +30,22 @@ jobs:
         with:
           name: resource-extrcator.jar
           path: build/libs/resource-extractor.jar
-#  QQTang52_Beta1Build1:
-#    runs-on: ubuntu-latest
-#    uses: ./.github/workflows/build
-#    steps:
-#      - run:
-#          ls -alFR
+  QQTang52_Beta1Build1:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Setup Java environments
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Get Extractor
+        uses: actions/download-artifact@v3
+        with:
+          name: resource-extrcator.jar
+      - name: Get Installer
+        run: |
+          wget "https://github.com/QQTangMemorialUnofficial/installation-packages/releases/download/5.2_Beta1Build1/QQTang5.2_Beta1Build1.EXE"
+      - name: Extract
+        run: |
+          ls -alF
