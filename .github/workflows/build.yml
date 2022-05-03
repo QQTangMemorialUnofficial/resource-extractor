@@ -48,7 +48,7 @@ jobs:
           wget "https://github.com/QQTangMemorialUnofficial/installation-packages/releases/download/5.2_Beta1Build1/QQTang5.2_Beta1Build1.EXE"
       - name: Extract Installer
         run: |
-          7z x QQTang5.2_Beta1Build1.EXE -oextracted
+          7z x QQTang5.2_Beta1Build1.EXE -oextracted -aoa
       - name: Extract Resources
         run: |
           java -jar resource-extractor.jar QQTang5.2_Beta1Build1 ./extracted
