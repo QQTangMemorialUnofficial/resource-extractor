@@ -8,6 +8,7 @@ on:
     branches:
       - master
   workflow_dispatch:
+  workflow_call:
 
 jobs:
   build:
@@ -25,3 +26,9 @@ jobs:
         with:
           arguments: build
           build-root-directory: Extract_Scripts
+  QQTang52_Beta1Build1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/workflows/build
+      - run:
+          ls -alFR
