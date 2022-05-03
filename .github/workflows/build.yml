@@ -30,6 +30,35 @@ jobs:
         with:
           name: resource-extrcator.jar
           path: build/libs/resource-extractor.jar
+  QQT_IMG:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Setup Java environments
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+      - name: Get Extractor
+        uses: actions/download-artifact@v3
+        with:
+          name: resource-extrcator.jar
+      - name: Get Installer
+        run: |
+          wget "https://github.com/QQTangMemorialUnofficial/installation-packages/releases/download/qqt_img/qqt-img.qq.com.zip"
+      - name: Extract Installer
+        run: |
+          unzip qqt-img.qq.com.zip -dextracted
+          ls -alF
+      - name: Extract Resources
+        run: |
+          java -jar resource-extractor.jar qqt-img.qq.com ./extracted
+          zip -r qqt-img.qq.com.zip qqt-img.qq.com
+      - name: Publish Resources
+        uses: actions/upload-artifact@v3
+        with:
+          name: qqt-img.qq.com
+          path: qqt-img.qq.com.zip
   QQTang52_Beta1Build1:
     runs-on: ubuntu-latest
     needs: build

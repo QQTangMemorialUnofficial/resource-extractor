@@ -1,5 +1,6 @@
 package com.geno1024.qqtangextractor
 
+import com.geno1024.qqtangextractor.versions.QQTIMG
 import com.geno1024.qqtangextractor.versions.QQTang5211
 
 object QQTangExtractor
@@ -22,6 +23,7 @@ object QQTangExtractor
             Settings.base = args[1]
             when (Settings.version)
             {
+                "qqt-img.qq.com" -> QQTIMG()
                 "QQTang5.2_Beta1Build1" -> QQTang5211()
             }
 //            GBK12("/res/GBK12.bmp").toTTF()
