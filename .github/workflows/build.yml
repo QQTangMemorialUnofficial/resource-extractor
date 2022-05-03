@@ -24,7 +24,12 @@ jobs:
       - name: Build QQTangExtractor
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: build
+          arguments: fatJar
+      - name: Publish Jar
+        uses: actions/upload-artifact@v3
+        with:
+          name: resource-extrcator.jar
+          path: build/libs/resource-extractor.jar
 #  QQTang52_Beta1Build1:
 #    runs-on: ubuntu-latest
 #    uses: ./.github/workflows/build
