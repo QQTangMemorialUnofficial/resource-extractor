@@ -53,12 +53,12 @@ jobs:
       - name: Extract Resources
         run: |
           java -jar resource-extractor.jar qqt-img.qq.com ./extracted
-          zip -r qqt-img.qq.com.zip qqt-img.qq.com
+          zip -r qqt-img.zip qqt-img.qq.com
       - name: Publish Resources
         uses: actions/upload-artifact@v3
         with:
-          name: qqt-img.qq.com
-          path: qqt-img.qq.com.zip
+          name: qqt-img
+          path: qqt-img.zip
   QQTang52_Beta1Build1:
     runs-on: ubuntu-latest
     needs: build
