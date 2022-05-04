@@ -49,11 +49,14 @@ jobs:
       - name: Extract Installer
         run: |
           unzip qqt-img.qq.com.zip -dextracted
-          ls -alF
       - name: Extract Resources
         run: |
           java -jar resource-extractor.jar qqt-img.qq.com ./extracted
           zip -r qqt-img.zip qqt-img.qq.com
+        continue-on-error: true
+      - name: Debugging path
+        run: |
+          ls -alFR
       - name: Publish Resources
         uses: actions/upload-artifact@v3
         with:
