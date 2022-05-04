@@ -4,5 +4,5 @@ object Settings
 {
     var base = ""
     var version = ""
-    var debug = true
+    var debug = false
 }

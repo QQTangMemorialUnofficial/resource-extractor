@@ -48,7 +48,7 @@ jobs:
           wget -q "https://github.com/QQTangMemorialUnofficial/installation-packages/releases/download/qqt_img/qqt-img.qq.com.zip"
       - name: Extract Installer
         run: |
-          unzip qqt-img.qq.com.zip -dextracted
+          unzip qqt-img.qq.com.zip -dextracted -q
       - name: Extract Resources
         run: |
           java -jar resource-extractor.jar qqt-img.qq.com ./extracted
