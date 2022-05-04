@@ -14,16 +14,16 @@ object QQTIMG
         "/qqt-img.qq.com/item/ItemZips" decodeFiles "ZIP"
         File(Settings.version).copyRecursively(File("${Settings.version}_temp"))
         File(Settings.version).deleteRecursively()
-        Settings.version = "${Settings.version}_temp"
+        Settings.base = "${Settings.version}_temp"
         "/qqt-img.qq.com/item/ItemZips".apply {
-            File("${Settings.version}$this").listFiles()?.forEach { category ->
+            File("${Settings.base}$this").listFiles()?.forEach { category ->
                 category.listFiles()?.forEach { index ->
                     index.listFiles()?.forEach { file ->
                         when (file.extension)
                         {
                             "img" -> "/${file.toRelativeString(File("${Settings.version}_temp")).replace("\\", "/")}" decode "IMG"
 //                            "ini" -> "/${file.toRelativeString(File("${Settings.version}_temp")).replace("\\", "/")}" copyTo "/${file.toRelativeString(File(Settings.base)).replace("\\", "/")}"
-                            else -> println(file)
+                            else -> {}
                         }
                     }
                 }
