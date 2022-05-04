@@ -39,7 +39,7 @@ abstract class Inst(open val opr: MutableList<String>)
     }
 }
 
-infix fun String.copyTo(target: String) = File("${Settings.base}/$this").absoluteFile.copyRecursively(File("${Settings.version}/$target"), overwrite = true)
+infix fun String.copyTo(target: String) = File("${Settings.base}/$this").canonicalFile.copyRecursively(File("${Settings.version}/$target"), overwrite = true)
 
 infix fun String.decode(type: String) = when (type)
 {
