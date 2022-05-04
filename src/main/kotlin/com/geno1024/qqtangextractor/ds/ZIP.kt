@@ -13,7 +13,7 @@ class ZIP(path: String)
 
     fun decode() = ZipFile(file, Charset.forName("GBK")).apply {
         entries().toList().map {
-            File("${Settings.version}/${file.toRelativeString(File(Settings.base)).substringBeforeLast('\\').replace('\\', '/')}/${it.name}").apply {
+            File("${Settings.version}/${file.toRelativeString(File(Settings.base)).replace('\\', '/').substringBeforeLast('/')}/${it.name}").apply {
                 if (it.isDirectory) mkdirs()
                 else
                 {
