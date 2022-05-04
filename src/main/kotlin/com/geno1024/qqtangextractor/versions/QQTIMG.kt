@@ -12,6 +12,7 @@ object QQTIMG
     operator fun invoke()
     {
         "/qqt-img.qq.com/item/ItemZips" decodeFiles "ZIP"
+        println(Runtime.getRuntime().exec(arrayOf("ls", "-alFR")).inputStream.readAllBytes().toString(Charsets.UTF_8))
         File(Settings.version).copyRecursively(File("${Settings.version}_temp"))
         File(Settings.version).deleteRecursively()
 //        Settings.version = "qqt-img"
