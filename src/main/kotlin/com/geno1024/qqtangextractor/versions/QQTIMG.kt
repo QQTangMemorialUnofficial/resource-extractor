@@ -11,11 +11,11 @@ object QQTIMG
 {
     operator fun invoke()
     {
-        "/item/ItemZips" decodeFiles "ZIP"
+        "/qqt-img.qq.com/item/ItemZips" decodeFiles "ZIP"
         File(Settings.version).copyRecursively(File("${Settings.version}_temp"))
         File(Settings.version).deleteRecursively()
         Settings.base = "${Settings.version}_temp"
-        "/item/ItemZips".apply {
+        "/qqt-img.qq.com/item/ItemZips".apply {
             File("${Settings.base}$this").listFiles()?.forEach { category ->
                 category.listFiles()?.forEach { index ->
                     index.listFiles()?.forEach { file ->

@@ -52,7 +52,7 @@ jobs:
           ls -alF
       - name: Extract Resources
         run: |
-          java -jar resource-extractor.jar qqt-img.qq.com ./extracted/qqt-img.qq.com
+          java -jar resource-extractor.jar qqt-img.qq.com ./extracted
           zip -r qqt-img.zip qqt-img.qq.com
       - name: Publish Resources
         uses: actions/upload-artifact@v3
