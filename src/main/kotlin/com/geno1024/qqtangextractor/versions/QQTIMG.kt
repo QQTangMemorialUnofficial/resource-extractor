@@ -23,8 +23,8 @@ object QQTIMG
                     index.listFiles()?.forEach { file ->
                         when (file.extension)
                         {
-                            "img" -> "/${file.toRelativeString(File("${Settings.version}_temp$this")).replace("\\", "/")}" decode "IMG"
-                            "ini" -> "/${file.toRelativeString(File("${Settings.version}_temp$this")).replace("\\", "/")}" copyTo "/${file.toRelativeString(File(Settings.base)).replace("\\", "/")}"
+                            "img" -> "/${file.toRelativeString(File("${Settings.version}_temp")).replace("\\", "/")}" decode "IMG"
+                            "ini" -> "/${file.toRelativeString(File("${Settings.version}_temp")).replace("\\", "/")}" copyTo "/${file.toRelativeString(File(Settings.base)).replace("\\", "/")}"
                         }
                     }
                 }
