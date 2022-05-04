@@ -52,7 +52,7 @@ jobs:
       - name: Extract Resources
         run: |
           java -jar resource-extractor.jar qqt-img.qq.com ./extracted
-          zip -r qqt-img.zip qqt-img.qq.com
+          zip -qr qqt-img.zip qqt-img.qq.com
       - name: Publish Resources
         uses: actions/upload-artifact@v3
         with:
@@ -80,7 +80,7 @@ jobs:
       - name: Extract Resources
         run: |
           java -jar resource-extractor.jar QQTang5.2_Beta1Build1 ./extracted
-          zip -r QQTang5.2_Beta1Build1.zip QQTang5.2_Beta1Build1
+          zip -qr QQTang5.2_Beta1Build1.zip QQTang5.2_Beta1Build1
       - name: Publish Resources
         uses: actions/upload-artifact@v3
         with:
