@@ -16,7 +16,8 @@ object QQTIMG
         File(Settings.version).deleteRecursively()
 //        Settings.version = "qqt-img"
         "/qqt-img.qq.com_temp/qqt-img.qq.com/item/ItemZips".apply {
-            File("${Settings.version}_temp$this").apply { println(this) }.listFiles()?.forEach { category ->
+            File("${Settings.version}_temp$this").listFiles()?.forEach { category ->
+                category.apply { println(this) }
                 category.listFiles()?.forEach { index ->
                     index.listFiles()?.forEach { file ->
                         when (file.extension)
