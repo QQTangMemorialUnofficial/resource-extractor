@@ -15,7 +15,6 @@ object QQTIMG
         File(Settings.version).copyRecursively(File("${Settings.version}_temp"))
         File(Settings.version).deleteRecursively()
         Settings.version = "${Settings.version}_temp"
-        println(Runtime.getRuntime().exec(arrayOf("ls", "-alFR")).inputStream.readAllBytes().toString(Charsets.UTF_8))
         "/qqt-img.qq.com/item/ItemZips".apply {
             File("${Settings.version}$this").listFiles()?.forEach { category ->
                 category.listFiles()?.forEach { index ->
@@ -31,5 +30,6 @@ object QQTIMG
             }
         }
         File("${Settings.version}/README.md").writeText(ResourceTree.toTreeDiagramWithinZip())
+        println(Runtime.getRuntime().exec(arrayOf("ls", "-alFR")).inputStream.readAllBytes().toString(Charsets.UTF_8))
     }
 }
