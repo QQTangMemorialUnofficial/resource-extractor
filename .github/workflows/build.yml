@@ -45,7 +45,7 @@ jobs:
           name: resource-extrcator.jar
       - name: Get Installer
         run: |
-          wget "https://github.com/QQTangMemorialUnofficial/installation-packages/releases/download/qqt_img/qqt-img.qq.com.zip"
+          wget -q "https://github.com/QQTangMemorialUnofficial/installation-packages/releases/download/qqt_img/qqt-img.qq.com.zip"
       - name: Extract Installer
         run: |
           unzip qqt-img.qq.com.zip -dextracted
@@ -73,7 +73,7 @@ jobs:
           name: resource-extrcator.jar
       - name: Get Installer
         run: |
-          wget "https://github.com/QQTangMemorialUnofficial/installation-packages/releases/download/5.2_Beta1Build1/QQTang5.2_Beta1Build1.EXE"
+          wget -q "https://github.com/QQTangMemorialUnofficial/installation-packages/releases/download/5.2_Beta1Build1/QQTang5.2_Beta1Build1.EXE"
       - name: Extract Installer
         run: |
           7z x QQTang5.2_Beta1Build1.EXE -oextracted -aoa

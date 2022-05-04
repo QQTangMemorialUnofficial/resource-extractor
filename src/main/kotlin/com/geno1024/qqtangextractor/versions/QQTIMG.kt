@@ -12,9 +12,9 @@ object QQTIMG
     operator fun invoke()
     {
         "/qqt-img.qq.com/item/ItemZips" decodeFiles "ZIP"
-        println(Runtime.getRuntime().exec(arrayOf("ls", "-alFR")).inputStream.readAllBytes().toString(Charsets.UTF_8))
         File(Settings.version).copyRecursively(File("${Settings.version}_temp"))
         File(Settings.version).deleteRecursively()
+        println(Runtime.getRuntime().exec(arrayOf("ls", "-alFR")).inputStream.readAllBytes().toString(Charsets.UTF_8))
 //        Settings.version = "qqt-img"
         "/qqt-img.qq.com/item/ItemZips".apply {
             File("${Settings.version}_temp$this").listFiles()?.forEach { category ->
@@ -23,8 +23,8 @@ object QQTIMG
                     index.listFiles()?.forEach { file ->
                         when (file.extension)
                         {
-                            "img" -> "/${file.toRelativeString(File(Settings.base)).replace("\\", "/")}" decode "IMG"
-                            "ini" -> "/${file.toRelativeString(File(Settings.base)).replace("\\", "/")}" copyTo "/${file.toRelativeString(File(Settings.base)).replace("\\", "/")}"
+                            "img" -> "/${file.toRelativeString(File("${Settings.version}_temp$this")).replace("\\", "/")}" decode "IMG"
+                            "ini" -> "/${file.toRelativeString(File("${Settings.version}_temp$this")).replace("\\", "/")}" copyTo "/${file.toRelativeString(File(Settings.base)).replace("\\", "/")}"
                         }
                     }
                 }
