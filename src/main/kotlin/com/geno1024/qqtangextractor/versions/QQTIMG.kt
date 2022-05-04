@@ -23,7 +23,8 @@ object QQTIMG
                         when (file.extension)
                         {
                             "img" -> "/${file.toRelativeString(File("${Settings.version}_temp")).replace("\\", "/")}" decode "IMG"
-                            "ini" -> "/${file.toRelativeString(File("${Settings.version}_temp")).replace("\\", "/")}" copyTo "/${file.toRelativeString(File(Settings.base)).replace("\\", "/")}"
+//                            "ini" -> "/${file.toRelativeString(File("${Settings.version}_temp")).replace("\\", "/")}" copyTo "/${file.toRelativeString(File(Settings.base)).replace("\\", "/")}"
+                            else -> println(file)
                         }
                     }
                 }
